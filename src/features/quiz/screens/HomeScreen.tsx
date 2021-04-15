@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { Text } from "react-native";
 
 import SafeArea from "../../../ui/components/utility/SafeAreaBase";
 import {
@@ -19,7 +19,7 @@ const HomeScreen = () => (
       <Text>Can you score 100%?</Text>
     </Body>
     <QuizButtoWrapper>
-      <StartQuizButton mode="contained" onPress={() => console.log("pressed")}>
+      <StartQuizButton mode="contained" onPress={() => null}>
         BEGIN
       </StartQuizButton>
     </QuizButtoWrapper>
