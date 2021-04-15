@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { Text } from "react-native";
 import { useAppDispatch } from "../../../store";
-import { loadQuestionsAsync } from "../triviaSlice";
+import { loadQuestionsAsync } from "../quizSlice";
 
-const TriviaQuestionsScreen = () => {
+const QuizScreen = () => {
   // const questions = useAppSelector(selectQuestions);
   const dispatch = useAppDispatch();
 
@@ -12,6 +12,6 @@ const TriviaQuestionsScreen = () => {
     dispatch({ type: "TESTING" });
   }, [dispatch]);
 
-  return <Text>TriviaQuestionsScreen</Text>;
+  return <Text>QuizScreen</Text>;
 };
-export default TriviaQuestionsScreen;
+export default QuizScreen;

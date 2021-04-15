@@ -1,7 +1,9 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-import fetchQuestions from "./triviaAPI";
+import fetchQuestions from "./quizAPI";
 import type { RootState } from "../../store/index";
+
+/* Types */
 
 interface QuestionsFormat {
   category: string;
@@ -12,30 +14,44 @@ interface QuestionsFormat {
   incorrect_answers: string[];
 }
 
-export interface TriviaState {
+export interface QuizState {
   questions: QuestionsFormat[];
   error: string | undefined;
+  loading: boolean;
 }
 
-const initialState: TriviaState = {
+const initialState: QuizState = {
   questions: [],
   error: undefined,
+  loading: false,
 };
+
+/* -------------------------------------- */
+
+/* Async Thunks */
 
 export const loadQuestionsAsync = createAsyncThunk(
   "trivia/loadQuestions",
   async () => fetchQuestions()
 );
 
-export const triviaSlice = createSlice({
-  name: "trivia",
+/* -------------------------------------- */
+
+/* reducers */
+
+export const quizSlice = createSlice({
+  name: "quiz",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
+      .addCase(loadQuestionsAsync.pending, (state) => {
+        state.loading = true;
+      })
       .addCase(loadQuestionsAsync.fulfilled, (state, action) => {
         state.questions = action.payload;
         state.error = undefined;
+        state.loading = false;
       })
       .addCase(loadQuestionsAsync.rejected, (state, action) => {
         const { message } = action.error;
@@ -44,6 +60,12 @@ export const triviaSlice = createSlice({
   },
 });
 
-export const selectQuestions = (state: RootState) => state.trivia.questions;
+export default quizSlice.reducer;
 
-export default triviaSlice.reducer;
+/* -------------------------------------- */
+
+/* selectors */
+
+export const selectQuestions = (state: RootState) => state.quiz.questions;
+
+/* -------------------------------------- */

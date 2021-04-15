@@ -1,11 +1,11 @@
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
 
-import triviaReducer from "../features/trivia/triviaSlice";
+import quizReducer from "../features/quiz/quizSlice";
 
 export const store = configureStore({
   reducer: {
-    trivia: triviaReducer,
+    quiz: quizReducer,
   },
 });
 
