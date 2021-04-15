@@ -1,7 +1,6 @@
 import React from "react";
 import { Text } from "react-native";
 
-import SafeArea from "../../../ui/components/utility/SafeAreaBase";
 import {
   Body,
   Title,
@@ -10,7 +9,7 @@ import {
 } from "./styles/HomeScreenStyles";
 
 const HomeScreen = () => (
-  <SafeArea>
+  <>
     <Title>
       <Text>Welcome to the Trivia Challenge!</Text>
     </Title>
@@ -23,7 +22,7 @@ const HomeScreen = () => (
         BEGIN
       </StartQuizButton>
     </QuizButtoWrapper>
-  </SafeArea>
+  </>
 );
 
 export default HomeScreen;
