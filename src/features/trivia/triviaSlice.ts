@@ -14,10 +14,12 @@ interface QuestionsFormat {
 
 export interface TriviaState {
   questions: QuestionsFormat[];
+  error: string | undefined;
 }
 
 const initialState: TriviaState = {
   questions: [],
+  error: undefined,
 };
 
 export const loadQuestionsAsync = createAsyncThunk(
@@ -30,9 +32,15 @@ export const triviaSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(loadQuestionsAsync.fulfilled, (state, action) => {
-      state.questions = action.payload;
-    });
+    builder
+      .addCase(loadQuestionsAsync.fulfilled, (state, action) => {
+        state.questions = action.payload;
+        state.error = undefined;
+      })
+      .addCase(loadQuestionsAsync.rejected, (state, action) => {
+        const { message } = action.error;
+        state.error = message;
+      });
   },
 });
 

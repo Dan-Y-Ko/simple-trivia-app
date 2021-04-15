@@ -9,7 +9,7 @@ const fetchQuestions = async () => {
 
     return result.data.results;
   } catch (error) {
-    throw error;
+    throw error.message;
   }
 };
 
