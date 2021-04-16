@@ -5,8 +5,14 @@ import {
 } from "@react-navigation/stack";
 
 import HomeScreen from "../features/quiz/screens/HomeScreen";
-import QuizScreen from "../features/quiz/screens/QuizScreen";
+import QuizScreen, { Results } from "../features/quiz/screens/QuizScreen";
 import ResultsScreen from "../features/quiz/screens/ResultsScreen";
+
+export type QuizStackParamList = {
+  Home: undefined;
+  Quiz: undefined;
+  Results: { results: Results[]; score: number };
+};
 
 const forFade = ({ current }: StackCardInterpolationProps) => ({
   cardStyle: {
@@ -14,7 +20,7 @@ const forFade = ({ current }: StackCardInterpolationProps) => ({
   },
 });
 
-const QuizStack = createStackNavigator();
+const QuizStack = createStackNavigator<QuizStackParamList>();
 
 const QuizNavigator = (): JSX.Element => (
   <QuizStack.Navigator initialRouteName="Home" headerMode="none">

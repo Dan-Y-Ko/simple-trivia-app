@@ -7,7 +7,7 @@ import LoadingComponent from "../../../ui/components/loading/LoadingComponent";
 import { useAppDispatch, useAppSelector } from "../../../store";
 import { loadQuestionsAsync, selectQuestions } from "../store/quizSlice";
 
-interface Results {
+export interface Results {
   question: string;
   correct: boolean;
 }
@@ -57,7 +57,7 @@ const QuizScreen = () => {
     }
 
     if (currentQuestionIndex + 1 > questionsStore.questions.length - 1) {
-      navigation.navigate("Results");
+      navigation.navigate("Results", { score, results });
     } else {
       setCurrentQuestionIndex((prevState) => prevState + 1);
     }
@@ -76,7 +76,6 @@ const QuizScreen = () => {
           handleAnswerPress={handleAnswerPress}
         />
       )}
-      <Text>{score}</Text>
     </>
   );
 };
