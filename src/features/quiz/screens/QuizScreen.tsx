@@ -12,18 +12,18 @@ interface Results {
 }
 
 const QuizScreen = () => {
-  const [currentQuestion, setCurrentQuestion] = useState<number>(0);
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0);
   const [score, setScore] = useState<number>(0);
   const [results, setResults] = useState<Results[] | []>([]);
   const questionsStore = useAppSelector(selectQuestions);
   const dispatch = useAppDispatch();
   const navigation = useNavigation();
 
-  const ButtonArray = ["True", "False"];
-
   useEffect(() => {
     dispatch(loadQuestionsAsync());
   }, [dispatch]);
+
+  const ButtonArray = ["True", "False"];
 
   const handleAnswerPress = (i: number) => {
     let answer;
@@ -34,12 +34,14 @@ const QuizScreen = () => {
       answer = "False";
     }
 
-    if (answer === questionsStore.questions[currentQuestion].correct_answer) {
+    if (
+      answer === questionsStore.questions[currentQuestionIndex].correct_answer
+    ) {
       setScore((prevState) => prevState + 1);
       setResults([
         ...results,
         {
-          question: questionsStore.questions[currentQuestion].question,
+          question: questionsStore.questions[currentQuestionIndex].question,
           correct: true,
         },
       ]);
@@ -47,16 +49,16 @@ const QuizScreen = () => {
       setResults([
         ...results,
         {
-          question: questionsStore.questions[currentQuestion].question,
+          question: questionsStore.questions[currentQuestionIndex].question,
           correct: false,
         },
       ]);
     }
 
-    if (currentQuestion + 1 > questionsStore.questions.length - 1) {
+    if (currentQuestionIndex + 1 > questionsStore.questions.length - 1) {
       navigation.navigate("Results");
     } else {
-      setCurrentQuestion((prevState) => prevState + 1);
+      setCurrentQuestionIndex((prevState) => prevState + 1);
     }
   };
 
@@ -66,12 +68,14 @@ const QuizScreen = () => {
         <Text>Loading</Text>
       ) : (
         <>
-          <Text>{questionsStore.questions[currentQuestion]?.category}</Text>
           <Text>
-            {decode(questionsStore.questions[currentQuestion]?.question)}
+            {questionsStore.questions[currentQuestionIndex]?.category}
           </Text>
           <Text>
-            {currentQuestion + 1} / {questionsStore.questions.length}
+            {decode(questionsStore.questions[currentQuestionIndex]?.question)}
+          </Text>
+          <Text>
+            {currentQuestionIndex + 1} / {questionsStore.questions.length}
           </Text>
           {ButtonArray.map((button, i) => (
             <Button
