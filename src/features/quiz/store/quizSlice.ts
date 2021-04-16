@@ -5,7 +5,7 @@ import type { RootState } from "../../../store/index";
 
 /* Types */
 
-interface QuestionsFormat {
+export interface QuestionsFormat {
   category: string;
   type: string;
   difficulty: string;

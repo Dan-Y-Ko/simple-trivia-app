@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Text } from "react-native";
-import { decode } from "html-entities";
 import { useNavigation } from "@react-navigation/native";
 
-import AnswerButtonGroup from "../components/AnswerButtonGroup";
+import QuizComponent from "../components/QuizComponent";
 import { useAppDispatch, useAppSelector } from "../../../store";
 import { loadQuestionsAsync, selectQuestions } from "../store/quizSlice";
 
@@ -19,6 +18,8 @@ const QuizScreen = () => {
   const questionsStore = useAppSelector(selectQuestions);
   const dispatch = useAppDispatch();
   const navigation = useNavigation();
+
+  const { loading, questions, error } = questionsStore;
 
   useEffect(() => {
     dispatch(loadQuestionsAsync());
@@ -63,21 +64,14 @@ const QuizScreen = () => {
 
   return (
     <>
-      {questionsStore.loading ? (
-        <Text>Loading</Text>
-      ) : (
-        <>
-          <Text>
-            {questionsStore.questions[currentQuestionIndex]?.category}
-          </Text>
-          <Text>
-            {decode(questionsStore.questions[currentQuestionIndex]?.question)}
-          </Text>
-          <Text>
-            {currentQuestionIndex + 1} / {questionsStore.questions.length}
-          </Text>
-          <AnswerButtonGroup handleAnswerPress={handleAnswerPress} />
-        </>
+      {loading && <Text>Loading</Text>}
+      {error && <Text>Something went wrong</Text>}
+      {!error && (
+        <QuizComponent
+          questions={questions}
+          currentQuestionIndex={currentQuestionIndex}
+          handleAnswerPress={handleAnswerPress}
+        />
       )}
       <Text>{score}</Text>
     </>
