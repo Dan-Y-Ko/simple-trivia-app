@@ -3,6 +3,7 @@ import { Text } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import QuizComponent from "../components/QuizComponent";
+import LoadingComponent from "../../../ui/components/loading/LoadingComponent";
 import { useAppDispatch, useAppSelector } from "../../../store";
 import { loadQuestionsAsync, selectQuestions } from "../store/quizSlice";
 
@@ -62,11 +63,13 @@ const QuizScreen = () => {
     }
   };
 
+  if (loading) return <LoadingComponent />;
+
   return (
     <>
-      {loading && <Text>Loading</Text>}
-      {error && <Text>Something went wrong</Text>}
-      {!error && (
+      {error ? (
+        <Text>Something went wrong</Text>
+      ) : (
         <QuizComponent
           questions={questions}
           currentQuestionIndex={currentQuestionIndex}

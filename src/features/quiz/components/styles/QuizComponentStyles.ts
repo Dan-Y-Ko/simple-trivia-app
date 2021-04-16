@@ -1,9 +1,13 @@
 import styled from "styled-components/native";
 import { View } from "react-native";
 
-const QuizComponentContainerStyle = styled(View)`
+import TextComponent from "../../../../ui/components/typography/TextComponent";
+
+export const QuizComponentContainerStyle = styled(View)`
   flex: 1;
   justify-content: center;
 `;
 
-export default QuizComponentContainerStyle;
+export const TextComponentStyled = styled(TextComponent)`
+  text-align: center;
+`;

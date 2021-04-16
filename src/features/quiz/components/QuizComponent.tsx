@@ -1,9 +1,11 @@
 import React from "react";
-import { Text } from "react-native";
 
 import AnswerButtonGroup from "./AnswerButtonGroup";
 import QuestionCard from "./QuestionCard";
-import QuizComponentContainerStyle from "./styles/QuizComponentStyles";
+import {
+  QuizComponentContainerStyle,
+  TextComponentStyled,
+} from "./styles/QuizComponentStyles";
 import { QuestionsFormat } from "../store/quizSlice";
 
 interface QuizComponentProps {
@@ -18,13 +20,13 @@ const QuizComponent = ({
   handleAnswerPress,
 }: QuizComponentProps) => (
   <QuizComponentContainerStyle>
+    <TextComponentStyled variant="label">
+      Question # {currentQuestionIndex + 1} / {questions.length}
+    </TextComponentStyled>
     <QuestionCard
       questions={questions}
       currentQuestionIndex={currentQuestionIndex}
     />
-    <Text>
-      {currentQuestionIndex + 1} / {questions.length}
-    </Text>
     <AnswerButtonGroup handleAnswerPress={handleAnswerPress} />
   </QuizComponentContainerStyle>
 );
