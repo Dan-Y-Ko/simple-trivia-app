@@ -11,11 +11,11 @@ type Props = {
 };
 
 const ResultsScreen = ({ route }: Props) => {
-  console.log(route.params);
+  const { score } = route.params;
 
   return (
     <View>
-      <Text>Results Screen</Text>
+      <Text>{score}</Text>
     </View>
   );
 };
