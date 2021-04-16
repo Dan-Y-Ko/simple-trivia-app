@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 import fetchQuestions from "./quizAPI";
-import type { RootState } from "../../store/index";
+import type { RootState } from "../../../store/index";
 
 /* Types */
 

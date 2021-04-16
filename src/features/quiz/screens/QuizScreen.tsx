@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Text, Button } from "react-native";
+import { Text } from "react-native";
 import { decode } from "html-entities";
 import { useNavigation } from "@react-navigation/native";
 
+import AnswerButtonGroup from "../components/AnswerButtonGroup";
 import { useAppDispatch, useAppSelector } from "../../../store";
-import { loadQuestionsAsync, selectQuestions } from "../quizSlice";
+import { loadQuestionsAsync, selectQuestions } from "../store/quizSlice";
 
 interface Results {
   question: string;
@@ -22,8 +23,6 @@ const QuizScreen = () => {
   useEffect(() => {
     dispatch(loadQuestionsAsync());
   }, [dispatch]);
-
-  const ButtonArray = ["True", "False"];
 
   const handleAnswerPress = (i: number) => {
     let answer;
@@ -77,16 +76,10 @@ const QuizScreen = () => {
           <Text>
             {currentQuestionIndex + 1} / {questionsStore.questions.length}
           </Text>
-          {ButtonArray.map((button, i) => (
-            <Button
-              key={button}
-              title={button}
-              onPress={() => handleAnswerPress(i)}
-            />
-          ))}
-          {score}
+          <AnswerButtonGroup handleAnswerPress={handleAnswerPress} />
         </>
       )}
+      <Text>{score}</Text>
     </>
   );
 };

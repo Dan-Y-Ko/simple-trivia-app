@@ -9,6 +9,7 @@ import {
   TitleView,
   TitleText,
 } from "./styles/HomeScreenStyles";
+import colors from "../../../ui/theme/colors";
 
 const HomeScreen = (): JSX.Element => {
   const navigation = useNavigation();
@@ -29,7 +30,11 @@ const HomeScreen = (): JSX.Element => {
         <Text variant="body">Can you score 100%?</Text>
       </Body>
       <QuizButtoWrapper>
-        <StartQuizButton mode="contained" onPress={handleNavigation}>
+        <StartQuizButton
+          mode="contained"
+          onPress={handleNavigation}
+          color={colors.brand.primary}
+        >
           BEGIN
         </StartQuizButton>
       </QuizButtoWrapper>

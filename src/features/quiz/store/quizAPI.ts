@@ -1,4 +1,4 @@
-import instance from "../../api/index";
+import instance from "../../../api/index";
 
 const fetchQuestions = async () => {
   try {

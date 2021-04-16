@@ -1,12 +1,12 @@
 import React from "react";
-
-import ButtonStyled from "./styles/ButtonComponentStyles";
+import { Button } from "react-native-paper";
 
 interface ButtonComponentProps {
   mode: "text" | "outlined" | "contained";
   onPress: () => void;
   children: React.ReactNode;
   style?: any;
+  color: string;
 }
 
 const ButtonComponent = ({
@@ -14,10 +14,11 @@ const ButtonComponent = ({
   onPress,
   children,
   style,
+  color,
 }: ButtonComponentProps) => (
-  <ButtonStyled mode={mode} onPress={onPress} style={style}>
+  <Button mode={mode} onPress={onPress} style={style} color={color}>
     {children}
-  </ButtonStyled>
+  </Button>
 );
 
 export default ButtonComponent;
