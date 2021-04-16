@@ -12,6 +12,7 @@ interface QuestionsFormat {
   question: string;
   correct_answer: string;
   incorrect_answers: string[];
+  [key: string]: any;
 }
 
 export interface QuizState {
@@ -66,6 +67,6 @@ export default quizSlice.reducer;
 
 /* selectors */
 
-export const selectQuestions = (state: RootState) => state.quiz.questions;
+export const selectQuestions = (state: RootState) => state.quiz;
 
 /* -------------------------------------- */

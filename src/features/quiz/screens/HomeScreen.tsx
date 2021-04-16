@@ -10,7 +10,7 @@ import {
   TitleText,
 } from "./styles/HomeScreenStyles";
 
-const HomeScreen = () => {
+const HomeScreen = (): JSX.Element => {
   const navigation = useNavigation();
 
   const handleNavigation = () => {
