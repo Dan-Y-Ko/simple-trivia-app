@@ -1,9 +1,18 @@
 import React from "react";
-import { createStackNavigator } from "@react-navigation/stack";
+import {
+  createStackNavigator,
+  StackCardInterpolationProps,
+} from "@react-navigation/stack";
 
 import HomeScreen from "../features/quiz/screens/HomeScreen";
 import QuizScreen from "../features/quiz/screens/QuizScreen";
 import ResultsScreen from "../features/quiz/screens/ResultsScreen";
+
+const forFade = ({ current }: StackCardInterpolationProps) => ({
+  cardStyle: {
+    opacity: current.progress,
+  },
+});
 
 const QuizStack = createStackNavigator();
 
@@ -12,17 +21,17 @@ const QuizNavigator = (): JSX.Element => (
     <QuizStack.Screen
       name="Home"
       component={HomeScreen}
-      options={{ gestureEnabled: false }}
+      options={{ gestureEnabled: false, cardStyleInterpolator: forFade }}
     />
     <QuizStack.Screen
       name="Quiz"
       component={QuizScreen}
-      options={{ gestureEnabled: false }}
+      options={{ gestureEnabled: false, cardStyleInterpolator: forFade }}
     />
     <QuizStack.Screen
       name="Results"
       component={ResultsScreen}
-      options={{ gestureEnabled: false }}
+      options={{ gestureEnabled: false, cardStyleInterpolator: forFade }}
     />
   </QuizStack.Navigator>
 );
