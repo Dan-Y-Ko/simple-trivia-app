@@ -25,20 +25,19 @@ const AnswerButtonGroup = ({ handleAnswerPress }: AnswerButtonGroupProps) => {
     return color;
   };
 
-  return (
-    <ButtonGroupContainer>
-      {ButtonArray.map((button, i) => (
-        <ButtonComponentStyled
-          key={button}
-          mode="contained"
-          color={setButtonColor(button)}
-          onPress={() => handleAnswerPress(i)}
-        >
-          {button}
-        </ButtonComponentStyled>
-      ))}
-    </ButtonGroupContainer>
-  );
+  const renderButtonGroup = () =>
+    ButtonArray.map((button, i) => (
+      <ButtonComponentStyled
+        key={button}
+        mode="contained"
+        color={setButtonColor(button)}
+        onPress={() => handleAnswerPress(i)}
+      >
+        {button}
+      </ButtonComponentStyled>
+    ));
+
+  return <ButtonGroupContainer>{renderButtonGroup()}</ButtonGroupContainer>;
 };
 
 export default AnswerButtonGroup;
