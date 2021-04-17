@@ -56,7 +56,7 @@ const QuizScreen = () => {
       ]);
     }
 
-    if (currentQuestionIndex + 1 > questionsStore.questions.length - 1) {
+    if (currentQuestionIndex + 1 > questionsStore.questions.length) {
       navigation.navigate("Results", { score, results });
     } else {
       setCurrentQuestionIndex((prevState) => prevState + 1);
@@ -67,7 +67,7 @@ const QuizScreen = () => {
 
   return (
     <>
-      {error ? (
+      {error && !loading ? (
         <Text>Something went wrong</Text>
       ) : (
         <QuizComponent

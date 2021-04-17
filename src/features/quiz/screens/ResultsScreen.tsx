@@ -1,7 +1,9 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, ScrollView } from "react-native";
 import { RouteProp } from "@react-navigation/native";
 
+import TextComponent from "../../../ui/components/typography/TextComponent";
+import ScoreContainer from "./styles/ResultsScreenStyles";
 import type { QuizStackParamList } from "../../../navigation/QuizNavigator";
 
 type ResultsScreenRouteProp = RouteProp<QuizStackParamList, "Results">;
@@ -11,11 +13,22 @@ type Props = {
 };
 
 const ResultsScreen = ({ route }: Props) => {
-  const { score } = route.params;
-
+  const { results, score } = route.params;
   return (
     <View>
-      <Text>{score}</Text>
+      <ScoreContainer>
+        <TextComponent variant="label">You scored</TextComponent>
+        <TextComponent variant="label">
+          {score} / {results.length}
+        </TextComponent>
+      </ScoreContainer>
+      <ScrollView>
+        {results.map((result) => (
+          <View>
+            <Text key={result.question}>{result.question}</Text>
+          </View>
+        ))}
+      </ScrollView>
     </View>
   );
 };
