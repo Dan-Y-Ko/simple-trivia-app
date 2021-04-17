@@ -31,7 +31,10 @@ const QuizScreen = () => {
     if (showScore) {
       navigation.navigate("Results", { score, results });
     }
-  }, [showScore, navigation, results, score]);
+
+    return () => setShowScore(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [showScore]);
 
   const handleAnswerPress = (i: number) => {
     let answer;

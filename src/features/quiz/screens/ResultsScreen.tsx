@@ -15,7 +15,7 @@ type Props = {
 const ResultsScreen = ({ route }: Props) => {
   const { results, score } = route.params;
   return (
-    <View>
+    <>
       <ScoreContainer>
         <TextComponent variant="label">You scored</TextComponent>
         <TextComponent variant="label">
@@ -24,12 +24,17 @@ const ResultsScreen = ({ route }: Props) => {
       </ScoreContainer>
       <ScrollView>
         {results.map((result) => (
-          <View key={result.question}>
-            <Text>{result.question}</Text>
-          </View>
+          <Text key={result.question} style={{ margin: 20 }}>
+            {result.question}
+          </Text>
         ))}
       </ScrollView>
-    </View>
+      <View style={{ margin: 16 }}>
+        <TextComponent variant="label" style={{ textAlign: "center" }}>
+          PLAY AGAIN?
+        </TextComponent>
+      </View>
+    </>
   );
 };
 
