@@ -24,7 +24,7 @@ const ResultsScreen = ({ route }: Props) => {
       </ScoreContainer>
       <ScrollView>
         {results.map((result) => (
-          <View key={result.question} style={{ margin: 20 }}>
+          <View key={result.question}>
             <Text>{result.question}</Text>
           </View>
         ))}
