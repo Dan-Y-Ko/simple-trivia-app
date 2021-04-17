@@ -56,6 +56,7 @@ export const quizSlice = createSlice({
       .addCase(loadQuestionsAsync.rejected, (state, action) => {
         const { message } = action.error;
         state.error = message;
+        state.loading = false;
       });
   },
 });

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Text } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import QuizComponent from "../components/QuizComponent";
 import LoadingComponent from "../../../ui/components/loading/LoadingComponent";
+import TextComponent from "../../../ui/components/typography/TextComponent";
 import { useAppDispatch, useAppSelector } from "../../../store";
 import { loadQuestionsAsync, selectQuestions } from "../store/quizSlice";
 
@@ -15,6 +15,7 @@ export interface Results {
 const QuizScreen = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0);
   const [score, setScore] = useState<number>(0);
+  const [showScore, setShowScore] = useState(false);
   const [results, setResults] = useState<Results[] | []>([]);
   const questionsStore = useAppSelector(selectQuestions);
   const dispatch = useAppDispatch();
@@ -25,6 +26,12 @@ const QuizScreen = () => {
   useEffect(() => {
     dispatch(loadQuestionsAsync());
   }, [dispatch]);
+
+  useEffect(() => {
+    if (showScore) {
+      navigation.navigate("Results", { score, results });
+    }
+  }, [showScore, navigation, results, score]);
 
   const handleAnswerPress = (i: number) => {
     let answer;
@@ -56,8 +63,8 @@ const QuizScreen = () => {
       ]);
     }
 
-    if (currentQuestionIndex + 1 > questionsStore.questions.length) {
-      navigation.navigate("Results", { score, results });
+    if (currentQuestionIndex + 1 > questionsStore.questions.length - 1) {
+      setShowScore(true);
     } else {
       setCurrentQuestionIndex((prevState) => prevState + 1);
     }
@@ -67,9 +74,8 @@ const QuizScreen = () => {
 
   return (
     <>
-      {error && !loading ? (
-        <Text>Something went wrong</Text>
-      ) : (
+      {error && <TextComponent variant="label">{error}</TextComponent>}
+      {!error && (
         <QuizComponent
           questions={questions}
           currentQuestionIndex={currentQuestionIndex}
