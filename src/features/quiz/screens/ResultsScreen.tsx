@@ -1,9 +1,13 @@
 import React from "react";
-import { View, Text, ScrollView } from "react-native";
 import { RouteProp } from "@react-navigation/native";
 
 import TextComponent from "../../../ui/components/typography/TextComponent";
-import ScoreContainer from "./styles/ResultsScreenStyles";
+import HeaderComponent from "../components/HeaderComponent";
+import QuizResultsComponent from "../components/QuizResultsComponent";
+import ButtonWrapper from "./styles/ResultsScreenStyles";
+import ButtonComponent from "../../../ui/components/button/ButtonComponent";
+import colors from "../../../ui/theme/colors";
+import space from "../../../ui/theme/spacing";
 import type { QuizStackParamList } from "../../../navigation/QuizNavigator";
 
 type ResultsScreenRouteProp = RouteProp<QuizStackParamList, "Results">;
@@ -16,20 +20,22 @@ const ResultsScreen = ({ route }: Props) => {
   const { results, score } = route.params;
   return (
     <>
-      <ScoreContainer>
+      <HeaderComponent height={space[2]}>
         <TextComponent variant="label">You scored</TextComponent>
         <TextComponent variant="label">
           {score} / {results.length}
         </TextComponent>
-      </ScoreContainer>
-      <ScrollView>
-        {results.map((result) => (
-          <Text key={result.question}>{result.question}</Text>
-        ))}
-      </ScrollView>
-      <View>
-        <TextComponent variant="label">PLAY AGAIN?</TextComponent>
-      </View>
+      </HeaderComponent>
+      <QuizResultsComponent results={results} />
+      <ButtonWrapper>
+        <ButtonComponent
+          mode="contained"
+          onPress={() => null}
+          color={colors.brand.primary}
+        >
+          PLAY AGAIN?
+        </ButtonComponent>
+      </ButtonWrapper>
     </>
   );
 };

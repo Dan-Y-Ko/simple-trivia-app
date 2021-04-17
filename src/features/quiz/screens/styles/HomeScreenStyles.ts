@@ -8,11 +8,6 @@ export const HomeScreenWrapper = styled(View)`
   height: 100%;
 `;
 
-export const TitleView = styled(View)`
-  align-items: center;
-  height: 33%;
-`;
-
 export const TitleText = styled(TextComponent)`
   margin-top: ${(props) => props.theme.space[2]};
 `;

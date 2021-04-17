@@ -1,12 +1,12 @@
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
 
+import HeaderComponent from "../components/HeaderComponent";
 import Text from "../../../ui/components/typography/TextComponent";
 import {
   Body,
   QuizButtoWrapper,
   StartQuizButton,
-  TitleView,
   TitleText,
 } from "./styles/HomeScreenStyles";
 import colors from "../../../ui/theme/colors";
@@ -20,9 +20,9 @@ const HomeScreen = (): JSX.Element => {
 
   return (
     <>
-      <TitleView>
+      <HeaderComponent height="33%">
         <TitleText variant="label">Welcome to the Trivia Challenge!</TitleText>
-      </TitleView>
+      </HeaderComponent>
       <Body>
         <Text variant="body">
           You will be presented with 10 True or False questions.
