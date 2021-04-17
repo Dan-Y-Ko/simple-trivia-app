@@ -6,11 +6,13 @@ import {
   ButtonGroupContainer,
 } from "./styles/AnswerButtonGroupStyles";
 
-interface AnswerButtonGroupProps {
+interface AnswerButtonGroupComponentProps {
   handleAnswerPress: (i: number) => void;
 }
 
-const AnswerButtonGroup = ({ handleAnswerPress }: AnswerButtonGroupProps) => {
+const AnswerButtonGroupComponent = ({
+  handleAnswerPress,
+}: AnswerButtonGroupComponentProps) => {
   const ButtonArray = ["True", "False"];
 
   const setButtonColor = (button: string) => {
@@ -40,4 +42,4 @@ const AnswerButtonGroup = ({ handleAnswerPress }: AnswerButtonGroupProps) => {
   return <ButtonGroupContainer>{renderButtonGroup()}</ButtonGroupContainer>;
 };
 
-export default AnswerButtonGroup;
+export default AnswerButtonGroupComponent;

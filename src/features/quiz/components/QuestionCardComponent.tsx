@@ -9,15 +9,15 @@ import {
   CardTitle,
 } from "./styles/QuestionCardStyles";
 
-interface QuestionCardProps {
+interface QuestionCardComponentProps {
   questions: QuestionsFormat[];
   currentQuestionIndex: number;
 }
 
-const QuestionCard = ({
+const QuestionCardComponent = ({
   questions,
   currentQuestionIndex,
-}: QuestionCardProps) => (
+}: QuestionCardComponentProps) => (
   <CardContainer>
     <CardStyled>
       <CardTitle title={questions[currentQuestionIndex]?.category} />
@@ -30,4 +30,4 @@ const QuestionCard = ({
   </CardContainer>
 );
 
-export default QuestionCard;
+export default QuestionCardComponent;

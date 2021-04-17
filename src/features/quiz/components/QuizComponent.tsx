@@ -1,7 +1,7 @@
 import React from "react";
 
-import AnswerButtonGroup from "./AnswerButtonGroup";
-import QuestionCard from "./QuestionCard";
+import AnswerButtonGroupComponent from "./AnswerButtonGroupComponent";
+import QuestionCardComponent from "./QuestionCardComponent";
 import {
   QuizComponentContainerStyle,
   TextComponentStyled,
@@ -23,11 +23,11 @@ const QuizComponent = ({
     <TextComponentStyled variant="label">
       Question # {currentQuestionIndex + 1} / {questions.length}
     </TextComponentStyled>
-    <QuestionCard
+    <QuestionCardComponent
       questions={questions}
       currentQuestionIndex={currentQuestionIndex}
     />
-    <AnswerButtonGroup handleAnswerPress={handleAnswerPress} />
+    <AnswerButtonGroupComponent handleAnswerPress={handleAnswerPress} />
   </QuizComponentContainerStyle>
 );
 
