@@ -2,8 +2,6 @@ import styled from "styled-components/native";
 import { View } from "react-native";
 import { Card, Paragraph } from "react-native-paper";
 
-import { fonts } from "../../../../ui/theme/fonts";
-
 export const CardContainer = styled(View)`
   align-items: center;
 `;
@@ -15,13 +13,12 @@ export const CardStyled = styled(Card)`
   margin-bottom: ${(props) => props.theme.space[2]};
 `;
 
-export const CardTitle = styled(Card.Title).attrs({
-  titleStyle: {
-    fontFamily: fonts.heading,
-    fontWeight: "700",
-  },
-})``;
+export const CardTextContainerStyled = styled(View)`
+  align-items: center;
+`;
 
-export const CardText = styled(Paragraph)`
+export const CardTextStyled = styled(Paragraph)`
   font-family: ${(props) => props.theme.fonts.body};
+  font-size: ${(props) => props.theme.fontSizes.title};
+  padding: ${(props) => props.theme.space[1]};
 `;

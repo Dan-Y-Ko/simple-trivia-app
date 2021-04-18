@@ -23,7 +23,7 @@ const QuizResultsComponent = ({ results }: QuizResultsComponentProps) => {
       <IconStyled name="close-box" size={24} />
     );
 
-  const randomIndex = Math.floor(Math.random() * 11);
+  const randomIndex = Math.floor(Math.random() * 50);
 
   return (
     <ScrollView>

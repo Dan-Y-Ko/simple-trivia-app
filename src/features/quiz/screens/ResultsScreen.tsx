@@ -16,7 +16,7 @@ const ResultsScreen = ({ navigation, route }: ResultsScreenProps) => {
   const { results, score } = route.params;
 
   const handleNavigation = () => {
-    navigation.navigate("Home");
+    navigation.popToTop();
   };
 
   return (

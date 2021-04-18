@@ -6,8 +6,8 @@ import { QuestionsFormat } from "../store/quizSlice";
 import {
   CardContainer,
   CardStyled,
-  CardText,
-  CardTitle,
+  CardTextContainerStyled,
+  CardTextStyled,
 } from "./styles/QuestionCardStyles";
 
 interface QuestionCardComponentProps {
@@ -21,9 +21,12 @@ const QuestionCardComponent = ({
 }: QuestionCardComponentProps) => (
   <CardContainer>
     <CardStyled>
-      <CardTitle title={questions[currentQuestionIndex]?.category} />
       <Card.Content>
-        <CardText>{decode(questions[currentQuestionIndex]?.question)}</CardText>
+        <CardTextContainerStyled>
+          <CardTextStyled>
+            {decode(questions[currentQuestionIndex]?.question)}
+          </CardTextStyled>
+        </CardTextContainerStyled>
       </Card.Content>
     </CardStyled>
   </CardContainer>
