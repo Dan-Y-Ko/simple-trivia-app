@@ -1,5 +1,5 @@
 import React from "react";
-import { RouteProp } from "@react-navigation/native";
+import { StackScreenProps } from "@react-navigation/stack";
 
 import TextComponent from "../../../ui/components/typography/TextComponent";
 import HeaderComponent from "../components/HeaderComponent";
@@ -10,14 +10,15 @@ import colors from "../../../ui/theme/colors";
 import space from "../../../ui/theme/spacing";
 import type { QuizStackParamList } from "../../../navigation/QuizNavigator";
 
-type ResultsScreenRouteProp = RouteProp<QuizStackParamList, "Results">;
+type ResultsScreenProps = StackScreenProps<QuizStackParamList, "Results">;
 
-type Props = {
-  route: ResultsScreenRouteProp;
-};
-
-const ResultsScreen = ({ route }: Props) => {
+const ResultsScreen = ({ navigation, route }: ResultsScreenProps) => {
   const { results, score } = route.params;
+
+  const handleNavigation = () => {
+    navigation.navigate("Home");
+  };
+
   return (
     <>
       <HeaderComponent height={space[2]}>
@@ -30,7 +31,7 @@ const ResultsScreen = ({ route }: Props) => {
       <ButtonWrapper>
         <ButtonComponent
           mode="contained"
-          onPress={() => null}
+          onPress={handleNavigation}
           color={colors.brand.primary}
         >
           PLAY AGAIN?

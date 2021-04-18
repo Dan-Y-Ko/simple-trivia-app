@@ -23,10 +23,12 @@ const QuizResultsComponent = ({ results }: QuizResultsComponentProps) => {
       <IconStyled name="close-box" size={24} />
     );
 
+  const randomIndex = Math.floor(Math.random() * 11);
+
   return (
     <ScrollView>
       {results.map((result, i) => (
-        <CardStyled key={result.question}>
+        <CardStyled key={`${result.question}-${randomIndex}`}>
           <CardTitleStyled title={`Question # ${i + 1}`} />
           <CardContentStyled>
             {renderIcon(result)}
