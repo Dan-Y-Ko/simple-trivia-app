@@ -1,11 +1,12 @@
 import React from "react";
+import { Card } from "react-native-paper";
 import { decode } from "html-entities";
-import { Card, Paragraph } from "react-native-paper";
 
 import { QuestionsFormat } from "../store/quizSlice";
 import {
   CardContainer,
   CardStyled,
+  CardText,
   CardTitle,
 } from "./styles/QuestionCardStyles";
 
@@ -22,9 +23,7 @@ const QuestionCardComponent = ({
     <CardStyled>
       <CardTitle title={questions[currentQuestionIndex]?.category} />
       <Card.Content>
-        <Paragraph>
-          {decode(questions[currentQuestionIndex]?.question)}
-        </Paragraph>
+        <CardText>{decode(questions[currentQuestionIndex]?.question)}</CardText>
       </Card.Content>
     </CardStyled>
   </CardContainer>

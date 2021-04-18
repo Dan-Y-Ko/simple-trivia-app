@@ -1,19 +1,41 @@
 import React from "react";
 import { ScrollView } from "react-native";
+import { decode } from "html-entities";
 
-import TextStyled from "./styles/QuizResultsStyles";
+import {
+  IconStyled,
+  CardStyled,
+  CardTitleStyled,
+  CardContentStyled,
+  CardTextStyled,
+} from "./styles/QuizResultsStyles";
 import type { Results } from "../screens/QuizScreen";
 
 interface QuizResultsComponentProps {
   results: Results[];
 }
 
-const QuizResultsComponent = ({ results }: QuizResultsComponentProps) => (
-  <ScrollView>
-    {results.map((result) => (
-      <TextStyled key={result.question}>{result.question}</TextStyled>
-    ))}
-  </ScrollView>
-);
+const QuizResultsComponent = ({ results }: QuizResultsComponentProps) => {
+  const renderIcon = (result: Results) =>
+    result.correct ? (
+      <IconStyled name="check-circle" size={24} correct />
+    ) : (
+      <IconStyled name="close-box" size={24} />
+    );
+
+  return (
+    <ScrollView>
+      {results.map((result, i) => (
+        <CardStyled key={result.question}>
+          <CardTitleStyled title={`Question # ${i + 1}`} />
+          <CardContentStyled>
+            {renderIcon(result)}
+            <CardTextStyled>{decode(result.question)}</CardTextStyled>
+          </CardContentStyled>
+        </CardStyled>
+      ))}
+    </ScrollView>
+  );
+};
 
 export default QuizResultsComponent;
