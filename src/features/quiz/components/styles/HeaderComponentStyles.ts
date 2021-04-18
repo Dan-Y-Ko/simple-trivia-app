@@ -1,14 +1,14 @@
 import styled from "styled-components/native";
 import { View } from "react-native";
 
-interface TitleViewProps {
+interface TitleViewStyledProps {
   height: string;
 }
 
-const TitleView = styled(View)`
+const TitleViewStyled = styled(View)`
   align-items: center;
-  height: ${(props: TitleViewProps) => props.height}%;
+  height: ${(props: TitleViewStyledProps) => props.height}%;
   margin-top: ${(props) => props.theme.space[2]};
 `;
 
-export default TitleView;
+export default TitleViewStyled;

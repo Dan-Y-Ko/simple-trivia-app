@@ -7,7 +7,7 @@ interface ErrorComponentProps {
   error: string;
 }
 
-const ErrorComponent = ({ error }: ErrorComponentProps) => (
+const ErrorComponent = ({ error }: ErrorComponentProps): JSX.Element => (
   <ErrorContainerStyled>
     <TextComponent variant="error">{error}</TextComponent>
   </ErrorContainerStyled>

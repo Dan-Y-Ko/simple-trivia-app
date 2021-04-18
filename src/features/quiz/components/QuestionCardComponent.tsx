@@ -2,13 +2,13 @@ import React from "react";
 import { Card } from "react-native-paper";
 import { decode } from "html-entities";
 
-import { QuestionsFormat } from "../store/quizSlice";
 import {
-  CardContainer,
+  CardContainerStyled,
   CardStyled,
   CardTextContainerStyled,
   CardTextStyled,
 } from "./styles/QuestionCardStyles";
+import type { QuestionsFormat } from "../store/quizSlice";
 
 interface QuestionCardComponentProps {
   questions: QuestionsFormat[];
@@ -18,8 +18,8 @@ interface QuestionCardComponentProps {
 const QuestionCardComponent = ({
   questions,
   currentQuestionIndex,
-}: QuestionCardComponentProps) => (
-  <CardContainer>
+}: QuestionCardComponentProps): JSX.Element => (
+  <CardContainerStyled>
     <CardStyled>
       <Card.Content>
         <CardTextContainerStyled>
@@ -29,7 +29,7 @@ const QuestionCardComponent = ({
         </CardTextContainerStyled>
       </Card.Content>
     </CardStyled>
-  </CardContainer>
+  </CardContainerStyled>
 );
 
 export default QuestionCardComponent;

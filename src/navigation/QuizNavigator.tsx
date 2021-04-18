@@ -1,6 +1,7 @@
 import React from "react";
 import {
   createStackNavigator,
+  StackCardInterpolatedStyle,
   StackCardInterpolationProps,
 } from "@react-navigation/stack";
 
@@ -14,7 +15,9 @@ export type QuizStackParamList = {
   Results: { results: Results[]; score: number };
 };
 
-const forFade = ({ current }: StackCardInterpolationProps) => ({
+const forFade = ({
+  current,
+}: StackCardInterpolationProps): StackCardInterpolatedStyle => ({
   cardStyle: {
     opacity: current.progress,
   },

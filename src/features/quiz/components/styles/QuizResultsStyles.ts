@@ -5,17 +5,10 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { fonts } from "../../../../ui/theme/fonts";
 import type { Theme } from "../../../../ui/theme";
 
-export interface IconProps {
+export interface IconStyledProps {
   correct: boolean;
   theme: Theme;
 }
-
-export const IconStyled = styled(MaterialCommunityIcons)`
-  color: ${(props: IconProps) =>
-    props.correct
-      ? props.theme.colors.ui.success
-      : props.theme.colors.ui.error};
-`;
 
 export const CardStyled = styled(Card)`
   margin: ${(props) => props.theme.space[2]};
@@ -31,6 +24,13 @@ export const CardTitleStyled = styled(Card.Title).attrs({
 export const CardContentStyled = styled(Card.Content)`
   flex-direction: row;
   align-items: center;
+`;
+
+export const IconStyled = styled(MaterialCommunityIcons)`
+  color: ${(props: IconStyledProps) =>
+    props.correct
+      ? props.theme.colors.ui.success
+      : props.theme.colors.ui.error};
 `;
 
 export const CardTextStyled = styled(Paragraph)`

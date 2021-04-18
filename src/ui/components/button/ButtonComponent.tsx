@@ -4,9 +4,9 @@ import { Button } from "react-native-paper";
 interface ButtonComponentProps {
   mode: "text" | "outlined" | "contained";
   onPress: () => void;
-  children: React.ReactNode;
   style?: any;
   color: string;
+  children: React.ReactNode;
 }
 
 const ButtonComponent = ({
@@ -15,7 +15,7 @@ const ButtonComponent = ({
   children,
   style,
   color,
-}: ButtonComponentProps) => (
+}: ButtonComponentProps): JSX.Element => (
   <Button mode={mode} onPress={onPress} style={style} color={color}>
     {children}
   </Button>

@@ -4,27 +4,23 @@ import { View } from "react-native";
 import ButtonComponent from "../../../../ui/components/button/ButtonComponent";
 import TextComponent from "../../../../ui/components/typography/TextComponent";
 
-export const HomeScreenWrapper = styled(View)`
-  height: 100%;
-`;
-
-export const TitleText = styled(TextComponent)`
+export const TitleTextStyled = styled(TextComponent)`
   margin-top: ${(props) => props.theme.space[2]};
 `;
 
-export const Body = styled(View)`
+export const BodyStyled = styled(View)`
   align-items: center;
   justify-content: space-between;
   height: 33%;
 `;
 
-export const QuizButtoWrapper = styled(View)`
+export const QuizButtoWrapperStyled = styled(View)`
   align-items: center;
   justify-content: flex-end;
   height: 33%;
 `;
 
-export const StartQuizButton = styled(ButtonComponent)`
+export const StartQuizButtonStyled = styled(ButtonComponent)`
   width: 90%;
   margin-bottom: ${(props) => props.theme.space[4]};
 `;

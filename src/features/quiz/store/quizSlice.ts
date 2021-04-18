@@ -14,7 +14,7 @@ export interface QuestionsFormat {
   incorrect_answers: string[];
 }
 
-export interface QuizState {
+interface QuizState {
   questions: QuestionsFormat[];
   error: string | undefined;
   loading: boolean;

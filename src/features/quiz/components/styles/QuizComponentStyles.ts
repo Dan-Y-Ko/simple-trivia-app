@@ -4,19 +4,19 @@ import { View } from "react-native";
 import TextComponent from "../../../../ui/components/typography/TextComponent";
 import HeaderComponent from "../HeaderComponent";
 
-export const QuizComponentContainerStyle = styled(View)`
-  flex: 1;
-  justify-content: center;
-`;
-
 export const HeaderComponentStyled = styled(HeaderComponent)`
   justify-content: flex-start;
 `;
 
-export const TitleText = styled(TextComponent)`
+export const TitleTextStyled = styled(TextComponent)`
   margin-top: ${(props) => props.theme.space[2]};
-  width: 90%;
+  width: 80%;
   text-align: center;
+`;
+
+export const QuizComponentContainerStyled = styled(View)`
+  flex: 1;
+  justify-content: center;
 `;
 
 export const TextComponentStyled = styled(TextComponent)`

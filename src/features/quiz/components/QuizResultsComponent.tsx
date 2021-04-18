@@ -3,10 +3,10 @@ import { ScrollView } from "react-native";
 import { decode } from "html-entities";
 
 import {
-  IconStyled,
   CardStyled,
   CardTitleStyled,
   CardContentStyled,
+  IconStyled,
   CardTextStyled,
 } from "./styles/QuizResultsStyles";
 import type { Results } from "../screens/QuizScreen";
@@ -15,8 +15,10 @@ interface QuizResultsComponentProps {
   results: Results[];
 }
 
-const QuizResultsComponent = ({ results }: QuizResultsComponentProps) => {
-  const renderIcon = (result: Results) =>
+const QuizResultsComponent = ({
+  results,
+}: QuizResultsComponentProps): JSX.Element => {
+  const renderIcon = (result: Results): JSX.Element =>
     result.correct ? (
       <IconStyled name="check-circle" size={24} correct />
     ) : (

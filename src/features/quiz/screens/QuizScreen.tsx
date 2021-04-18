@@ -12,9 +12,9 @@ export interface Results {
   correct: boolean;
 }
 
-const QuizScreen = () => {
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0);
-  const [score, setScore] = useState<number>(0);
+const QuizScreen = (): JSX.Element => {
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [score, setScore] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const [results, setResults] = useState<Results[] | []>([]);
   const questionsStore = useAppSelector(selectQuestions);
@@ -36,7 +36,7 @@ const QuizScreen = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [showScore]);
 
-  const handleAnswerPress = (i: number) => {
+  const handleAnswerPress = (i: number): void => {
     let answer;
 
     if (i === 0) {

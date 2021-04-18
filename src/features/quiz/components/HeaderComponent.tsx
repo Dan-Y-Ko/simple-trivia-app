@@ -1,14 +1,17 @@
 import React from "react";
 
-import TitleView from "./styles/HeaderComponentStyles";
+import TitleViewStyled from "./styles/HeaderComponentStyles";
 
 interface HeaderComponentProps {
   children: React.ReactNode;
   height: string;
 }
 
-const HeaderComponent = ({ children, height }: HeaderComponentProps) => (
-  <TitleView height={height}>{children}</TitleView>
+const HeaderComponent = ({
+  children,
+  height,
+}: HeaderComponentProps): JSX.Element => (
+  <TitleViewStyled height={height}>{children}</TitleViewStyled>
 );
 
 export default HeaderComponent;

@@ -4,18 +4,21 @@ import { StackScreenProps } from "@react-navigation/stack";
 import TextComponent from "../../../ui/components/typography/TextComponent";
 import HeaderComponent from "../components/HeaderComponent";
 import QuizResultsComponent from "../components/QuizResultsComponent";
-import ButtonWrapper from "./styles/ResultsScreenStyles";
 import ButtonComponent from "../../../ui/components/button/ButtonComponent";
+import ButtonWrapperStyled from "./styles/ResultsScreenStyles";
 import colors from "../../../ui/theme/colors";
 import space from "../../../ui/theme/spacing";
 import type { QuizStackParamList } from "../../../navigation/QuizNavigator";
 
 type ResultsScreenProps = StackScreenProps<QuizStackParamList, "Results">;
 
-const ResultsScreen = ({ navigation, route }: ResultsScreenProps) => {
+const ResultsScreen = ({
+  navigation,
+  route,
+}: ResultsScreenProps): JSX.Element => {
   const { results, score } = route.params;
 
-  const handleNavigation = () => {
+  const handleNavigation = (): void => {
     navigation.popToTop();
   };
 
@@ -28,7 +31,7 @@ const ResultsScreen = ({ navigation, route }: ResultsScreenProps) => {
         </TextComponent>
       </HeaderComponent>
       <QuizResultsComponent results={results} />
-      <ButtonWrapper>
+      <ButtonWrapperStyled>
         <ButtonComponent
           mode="contained"
           onPress={handleNavigation}
@@ -36,7 +39,7 @@ const ResultsScreen = ({ navigation, route }: ResultsScreenProps) => {
         >
           PLAY AGAIN?
         </ButtonComponent>
-      </ButtonWrapper>
+      </ButtonWrapperStyled>
     </>
   );
 };

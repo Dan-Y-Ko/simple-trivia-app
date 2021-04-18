@@ -1,14 +1,14 @@
 import React from "react";
 
 import {
-  LoadingContainer,
-  LoadingSpinner,
+  LoadingContainerStyled,
+  LoadingSpinnerStyled,
 } from "./styles/LoadingComponentStyles";
 
-const LoadingComponent = () => (
-  <LoadingContainer>
-    <LoadingSpinner size={50} animating />
-  </LoadingContainer>
+const LoadingComponent = (): JSX.Element => (
+  <LoadingContainerStyled>
+    <LoadingSpinnerStyled size={50} animating />
+  </LoadingContainerStyled>
 );
 
 export default LoadingComponent;

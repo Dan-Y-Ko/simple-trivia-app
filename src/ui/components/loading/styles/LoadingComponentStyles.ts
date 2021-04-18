@@ -4,11 +4,11 @@ import { ActivityIndicator } from "react-native-paper";
 
 import colors from "../../../theme/colors";
 
-export const LoadingContainer = styled(View)`
+export const LoadingContainerStyled = styled(View)`
   flex: 1;
   justify-content: center;
 `;
 
-export const LoadingSpinner = styled(ActivityIndicator).attrs({
+export const LoadingSpinnerStyled = styled(ActivityIndicator).attrs({
   color: colors.brand.primary,
 })``;

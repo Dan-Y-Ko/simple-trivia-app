@@ -2,8 +2,8 @@ import React from "react";
 
 import colors from "../../../ui/theme/colors";
 import {
+  ButtonGroupContainerStyled,
   ButtonComponentStyled,
-  ButtonGroupContainer,
 } from "./styles/AnswerButtonGroupStyles";
 
 interface AnswerButtonGroupComponentProps {
@@ -12,10 +12,10 @@ interface AnswerButtonGroupComponentProps {
 
 const AnswerButtonGroupComponent = ({
   handleAnswerPress,
-}: AnswerButtonGroupComponentProps) => {
+}: AnswerButtonGroupComponentProps): JSX.Element => {
   const ButtonArray = ["True", "False"];
 
-  const setButtonColor = (button: string) => {
+  const setButtonColor = (button: string): string => {
     let color;
 
     if (button === "True") {
@@ -27,7 +27,7 @@ const AnswerButtonGroupComponent = ({
     return color;
   };
 
-  const renderButtonGroup = () =>
+  const renderButtonGroup = (): JSX.Element[] =>
     ButtonArray.map((button, i) => (
       <ButtonComponentStyled
         key={button}
@@ -39,7 +39,11 @@ const AnswerButtonGroupComponent = ({
       </ButtonComponentStyled>
     ));
 
-  return <ButtonGroupContainer>{renderButtonGroup()}</ButtonGroupContainer>;
+  return (
+    <ButtonGroupContainerStyled>
+      {renderButtonGroup()}
+    </ButtonGroupContainerStyled>
+  );
 };
 
 export default AnswerButtonGroupComponent;

@@ -3,7 +3,7 @@ import { View } from "react-native";
 
 import ButtonComponent from "../../../../ui/components/button/ButtonComponent";
 
-export const ButtonGroupContainer = styled(View)`
+export const ButtonGroupContainerStyled = styled(View)`
   flex-direction: row;
   justify-content: center;
 `;

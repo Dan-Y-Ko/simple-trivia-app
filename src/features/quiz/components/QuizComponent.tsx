@@ -4,12 +4,12 @@ import AnswerButtonGroupComponent from "./AnswerButtonGroupComponent";
 import QuestionCardComponent from "./QuestionCardComponent";
 import space from "../../../ui/theme/spacing";
 import {
-  QuizComponentContainerStyle,
   HeaderComponentStyled,
+  TitleTextStyled,
+  QuizComponentContainerStyled,
   TextComponentStyled,
-  TitleText,
 } from "./styles/QuizComponentStyles";
-import { QuestionsFormat } from "../store/quizSlice";
+import type { QuestionsFormat } from "../store/quizSlice";
 
 interface QuizComponentProps {
   questions: QuestionsFormat[];
@@ -21,14 +21,14 @@ const QuizComponent = ({
   questions,
   currentQuestionIndex,
   handleAnswerPress,
-}: QuizComponentProps) => (
+}: QuizComponentProps): JSX.Element => (
   <>
-    <HeaderComponentStyled height={space[2]}>
-      <TitleText variant="label">
+    <HeaderComponentStyled height={space[3]}>
+      <TitleTextStyled variant="label">
         {questions[currentQuestionIndex]?.category}
-      </TitleText>
+      </TitleTextStyled>
     </HeaderComponentStyled>
-    <QuizComponentContainerStyle>
+    <QuizComponentContainerStyled>
       <TextComponentStyled variant="label">
         Question # {currentQuestionIndex + 1} / {questions.length}
       </TextComponentStyled>
@@ -37,7 +37,7 @@ const QuizComponent = ({
         currentQuestionIndex={currentQuestionIndex}
       />
       <AnswerButtonGroupComponent handleAnswerPress={handleAnswerPress} />
-    </QuizComponentContainerStyle>
+    </QuizComponentContainerStyled>
   </>
 );
 

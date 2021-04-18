@@ -2,7 +2,7 @@ import styled from "styled-components/native";
 import { View } from "react-native";
 import { Card, Paragraph } from "react-native-paper";
 
-export const CardContainer = styled(View)`
+export const CardContainerStyled = styled(View)`
   align-items: center;
 `;
 
