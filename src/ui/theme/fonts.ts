@@ -5,13 +5,11 @@ export interface Fonts {
 
 export interface FontWeights {
   regular: number;
-  medium: number;
   bold: number;
 }
 
 export interface FontSizes {
   caption: string;
-  button: string;
   body: string;
   title: string;
 }
@@ -23,13 +21,11 @@ export const fonts: Fonts = {
 
 export const fontWeights: FontWeights = {
   regular: 400,
-  medium: 500,
   bold: 700,
 };
 
 export const fontSizes: FontSizes = {
   caption: "12px",
-  button: "14px",
   body: "16px",
   title: "20px",
 };

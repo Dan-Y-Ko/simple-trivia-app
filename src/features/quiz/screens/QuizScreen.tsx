@@ -3,7 +3,7 @@ import { useNavigation } from "@react-navigation/native";
 
 import QuizComponent from "../components/QuizComponent";
 import LoadingComponent from "../../../ui/components/loading/LoadingComponent";
-import TextComponent from "../../../ui/components/typography/TextComponent";
+import ErrorComponent from "../../../ui/components/error/ErrorComponent";
 import { useAppDispatch, useAppSelector } from "../../../store";
 import { loadQuestionsAsync, selectQuestions } from "../store/quizSlice";
 
@@ -77,7 +77,7 @@ const QuizScreen = () => {
 
   return (
     <>
-      {error && <TextComponent variant="label">{error}</TextComponent>}
+      {error && <ErrorComponent error={error} />}
       {!error && (
         <QuizComponent
           questions={questions}
