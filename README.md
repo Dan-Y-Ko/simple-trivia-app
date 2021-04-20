@@ -1,4 +1,5 @@
 # simple-trivia-app
+
 A take home challenge for G2I to demonstrate proficiency with React Native and related technologies.
 
 **Installation / Running**
@@ -45,8 +46,8 @@ No env or other config needed
 
 **Folder Structure**
 
-I like to organize my project into folders grouped by features. App file is where all initial loading / config and provider wrappers go. I also have api folder, navigation 
-folder, and features folder at the root of the src folder. The api folder is where all config related to api calls would go. Navigation folder is where all setup related to 
+I like to organize my project into folders grouped by features. App file is where all initial loading / config and provider wrappers go. I also have api folder, navigation
+folder, and features folder at the root of the src folder. The api folder is where all config related to api calls would go. Navigation folder is where all setup related to
 navigation would go. Features folder is where the core application features are placed. Inside here I followed this structure (where applicable):
 
 ```
@@ -72,21 +73,22 @@ Last, I have a ui folder where I have reusable components that are not strictly 
 
 **Dependencies Used**
 
-* TypeScript - better code safety
-* Expo - helps with building out features much faster
-* React Navigation - solid library for handling navigation in React Native projects
-* Axios - help with handling http requests
-* Styled-Components - Solid css-in-js library that provides an easy way to handle dynamic styles.
-* Redux - Global state management library
-* Redux Toolkit - Utility library to help with common usecases in every application that uses Redux.
+- TypeScript - better code safety
+- Expo - helps with building out features much faster
+- React Navigation - solid library for handling navigation in React Native projects
+- Axios - help with handling http requests
+- Styled-Components - Solid css-in-js library that provides an easy way to handle dynamic styles
+- React Native Paper - UI component library
+- Redux - Global state management library
+- Redux Toolkit - Utility library to help with common usecases in every application that uses Redux
 
 **Challenges I faced**
 
 This is actually my first time using Redux Toolkit. Up to this point I just used Redux and Typescript without any other utility libraries and wrote my own setup. However,
-it did feel a bit "off" and not an ideal solution. So this time around I looked around in the docs and there is actually an article linked in the Redux-Typescript docs: 
+it did feel a bit "off" and not an ideal solution. So this time around I looked around in the docs and there is actually an article linked in the Redux-Typescript docs:
 [Do Not Create Union Types with Redux Action Types](https://phryneas.de/redux-typescript-no-discriminating-union). This is pretty much exactly what I've been doing up
 until now. With all the recommendations to use Redux Toolkit and how much easier it is to work with Typescript using this utility library, I figured now is good time to
-learn how to use it.  
+learn how to use it.
 
 It definitely took me a bit to figure out how to approach handling how to store the score and display the results at the end. I originally had issues with updating the results
 and then navigating to the results screen and displaying the results but I did come up with an different aprroach to solve this. I'm honestly not sure if my solution is
